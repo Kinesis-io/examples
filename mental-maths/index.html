@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="js/jquery-1.6.4.min.js"></script>
+  	<script src="js/index.js"></script>
+  	<link rel="stylesheet" href="css/style.css" type="text/css" />
+  	<script>
+    	$(function(){
+
+    	});
+  	</script>
+  </head>
+  <body>
+    <div id="gameHolder">
+      <div class="question">Is this a prime number?</div>
+      <div class="holder">
+        <div class="leftHolder column">Y</div>
+        <div class="middleHolder column">49</div>
+        <div class="rightHolder column">N</div>
+      </div>
+    </div>
+    <canvas id="cursor" width="100" height="100">
+      <div id='hand'></div>
+    </canvas>
+    </script>
+    <!-- js at the bottom to load the page faster -->
+    <link rel="stylesheet" type="text/css" href="http://cdn.kinesis.io/kinesis.css">
+    <script src="http://cdn.kinesis.io/kinesis-js-sdk.min.js"></script>
+    <script>
+      function swipeControl(gesture) {
+        switch(gesture){
+          case leftGesture:
+            $('#gridHolder').slideLeft();
+            break;
+          case rightGesture:
+             $('#gridHolder').slideRight();
+             break;
+        }
+      }
+    
+      var kinesis = new Kinesis;
+    </script>
+  </body>
+</html>

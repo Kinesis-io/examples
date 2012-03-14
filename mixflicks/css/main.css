@@ -1,0 +1,459 @@
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+body {
+  position: relative;
+  font-family: 'SegoeWPLight';
+}
+
+body.ui-mobile-viewport {
+  overflow-x: hidden;
+  margin: 0;
+}
+
+.ui-body-c, .ui-body-c input, .ui-body-c select, .ui-body-c textarea, .ui-body-c button {
+  font-family: 'SegoeWPLight';
+}
+
+*{
+  text-decoration: none;
+  cursor: none;
+  font-family: 'SegoeWPLight';
+}
+
+#cursor{
+  position: absolute;
+  left: -200px;
+  top: -200px;
+  width: 90px;
+  height: 90px;
+  pointer-events:none;
+  background:url(../images/hand.png) no-repeat center center;
+  z-index: 2;
+}
+
+#content{
+  height: 100%;
+  -webkit-perspective: 1000;
+  background:#aaa;
+}
+.back {
+  width: 64px;
+  height: 64px;
+  position: absolute;
+  left: 30px;
+  top: 100px;
+  z-index: 1;
+}
+.back img{
+  width: 100%;
+  height: 100%;
+}
+
+.ui-content, .ui-mobile, .ui-mobile .ui-page{
+  height: 100%;
+  padding: 0;
+  background:none;
+  text-shadow: none;
+  background:url(../images/bg.png) repeat-x left top;
+  background-size: 1px 100%;
+}
+
+/* jquery styles added */
+
+.page {
+  height: 100%;
+  padding: 0;
+  min-height: 701px;
+  background:none;
+  text-shadow: none;
+  background:url(../images/bg.png) repeat-x left top;
+  background-size: 1px 100%;
+}
+
+
+/*-------------------------------------------------*/
+
+.background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: #000;
+}
+.background video{
+  width: 100%;
+  height: 100%;
+  -webkit-transform: scale(1.5, 1.5);
+  opacity: 0.5;
+}
+.playing .background video{
+  opacity: 1.0;
+}
+.page {
+  position: relative;
+}
+
+/**********************
+  static elements
+***********************/
+#logo{
+  position: absolute;
+  width: 600px;
+  height: 106px;
+  background: url(../images/logo.png) no-repeat top left;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+#searchbutton{
+  z-index: 1;
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background: url(../images/searchButton.png) no-repeat top left;
+  background-size: 100%;
+  top: 50%;
+  margin-top: -40px;
+  left: 0;
+}
+#mic{
+  z-index: 1;
+  position: absolute;
+  width: 262px;
+  height: 65px;
+  background: url(../images/sayKinesis.png) no-repeat top left;
+  background-size: 100%;
+  bottom: 20px;
+  left: 20px;
+}
+#info{
+  z-index: 1;
+  position: absolute;
+  width: 300px;
+  color: #666666;
+  top: 20px;
+  right: 100px;
+  font-size: 30px;
+  line-height: 60px;
+  text-align: right;
+}
+.dark #info{
+  color: #f8f8f8;
+}
+#info>div{
+  width: 100%;
+  height: 100%;
+  padding-right: 80px;
+}
+#info .lin{
+  display: none;
+  background:url(../images/me.png) no-repeat center right;
+}
+#info 
++
+
+{
+  background:url(../images/avatar.png) no-repeat center right;
+}
+#info.loggedin .lin{
+  display: block;
+}
+#info.loggedin .lout{
+  display: none;
+}
+
+#time{
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  width: 262px;
+  height: 80px;
+  background-color: rgba(0,0,0, 0.5);
+}
+
+#close {
+  z-index: 2;
+  display: none;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  width: 48px;
+  height: 48px;
+}
+
+#logo,
+#searchbutton,
+#info,
+#time,
+.back,
+.toolbar{
+  -webkit-transition:all 0.5s ease-in-out;
+  -moz-transition:all 0.5s ease-in-out;
+}
+.playing .background~*{
+  opacity:0.0;
+  -webkit-transform: translate(0, -500px);
+  -moz-transform: translate(0, -500px);
+}
+.playing #mic{
+  opacity: 1.0;
+  -webkit-transform: none;
+  -moz-transform: none;
+}
+.playing #close{
+  opacity: 1.0;
+  -webkit-transform: none;
+  -moz-transform: none;
+  display: block;
+}
+
+/**********************
+  toolbar
+***********************/
+ul.toolbar{
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  -webkit-transition:opacity 0.5s ease-in-out;
+  -moz-transition:opacity 0.5s ease-in-out;
+  z-index: 1;
+}
+ul.toolbar li{
+  float: left;
+  padding: 5px;
+  font-size: 35px;
+  color:#a4a5a7;
+  margin-right: 30px;
+  -webkit-transition:all 0.5s ease-in-out;
+  -moz-transition:all 0.5s ease-in-out;
+}
+ul.toolbar li.active{
+  color:#333333;
+}
+.details ul.toolbar li{
+  color:#999;
+}
+.details ul.toolbar li.active{
+  color:#fff;
+}
+
+/**********************
+  tiles layout
+***********************/
+.tiles {
+  height: 100%;
+  width: 10000px;
+
+  -webkit-transition:all 0.5s ease-in-out;
+  -moz-transition:all 0.5s ease-in-out;
+}
+.tiles .tile {
+  height: 100%;
+  float: left;
+  position: relative;
+}
+/**********************
+  grid layout
+***********************/
+.grid .tiles .tile.active .content{
+  -webkit-transform: scale(1.0, 1.0);
+  -moz-transform: scale(1.0, 1.0);
+}
+.grid .tiles .tile.active+div .content{
+  -webkit-transform: translate(-100px, 20px) scale(0.8, 0.8);
+  -moz-transform: translate(-100px, 20px) scale(0.8, 0.8);
+}
+.grid .tiles .tile .content{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 404px;
+  width: 808px;
+  margin-top: -202px;
+  margin-left: -404px;
+
+  -webkit-transform: translate(100px, 20px) scale(0.8, 0.8);
+  -moz-transform: translate(100px, 20px) scale(0.8, 0.8);
+}
+.grid .tiles .tile li.big{
+  width: 402px;
+  height: 415px;
+  overflow: hidden;
+  background: url(../images/dots.png) no-repeat bottom left;
+  background-size: 50px auto;
+}
+
+@-webkit-keyframes movieSlide {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+  } 
+  40% {
+    -webkit-transform: translate3d(0, 0, 0);
+  }
+  60% {
+    -webkit-transform: translate3d(-407px, 0, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(-407px, 0, 0);
+  }
+}
+
+.ui-content.grid .tiles .tile.active li.big a{
+  width: 810px;
+  background: none;
+
+  -webkit-animation-name: movieSlide;
+  -webkit-animation-duration: 8000ms;
+  -webkit-animation-delay: 1000ms;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+  -webkit-animation-timing-function: ease-in-out;
+}
+.grid .tiles .tile li.big a img{
+  width: 402px;
+}
+.grid .tiles .tile li:last-child{
+  position: absolute;
+  left: 0;
+  top: 202px;
+}
+.grid .tiles .tile {
+  background: url("../images/shadow.png") no-repeat scroll 0 90% transparent;
+  background-size: 100% auto;
+}
+.grid .tiles .tile.search ul{
+  background: url("../images/searchbar.png") no-repeat scroll 40% center transparent;
+  background-size: 60%;
+}
+.grid .tiles .tile.search ul li{
+  visibility: hidden;
+}
+
+/**********************
+  list layout
+***********************/
+.list .tiles .tile .content{
+  position: absolute;
+  left: 0;
+  top: 50%;
+  height: 260px;
+  width: 100%;
+  margin-top: -130px;
+}
+.list .tiles .tile ul li{
+  width: 200px;
+}
+
+/**********************
+  details layout
+***********************/
+.details{
+}
+.details .tiles .tile .content{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 350px;
+  width: 808px;
+  margin-top: -150px;
+  margin-left: -404px;
+
+  background-color: rgba(0,0,0, 0.5);
+  -moz-box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  -webkit-box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  padding: 20px;
+}
+.details .tiles .tile {
+  background: url("../images/shadow.png") no-repeat scroll 0 80% transparent;
+  background-size: 100% auto;
+}
+
+.tiles .content{
+  -webkit-perspective: 1000;
+  -webkit-transition: all 0.6s ease-in-out;
+  -moz-transition: all 0.6s ease-in-out;
+}
+.tiles .content li{
+  float: left;
+  width: 200px;
+  height: 200px;
+  margin: 1px;
+  background-color: #ccc;
+
+  -webkit-transition:all 1.0s ease-in-out;
+  -moz-transition:all 1.0s ease-in-out;
+  -webkit-animation-duration: 1000ms;
+  -moz-animation-duration: 1000ms;
+}
+.tiles .content.active li{
+
+}
+@-webkit-keyframes slidingIn {
+  0% {
+    -webkit-transform: rotateY(0deg);
+  }
+  30%{
+    -webkit-transform: rotateY(-20deg);
+  }
+  100% {
+    -webkit-transform: rotateY(0deg);
+  }
+}
+.tiles.slideIn ul li{
+  -webkit-animation-name: slidingIn;
+}
+@-webkit-keyframes slidingOut {
+  0% {
+    -webkit-transform: rotateY(0deg);
+  }
+  30%{
+    -webkit-transform: rotateY(20deg);
+  }
+  100% {
+    -webkit-transform: rotateY(0deg);
+  }
+}
+.tiles.slideOut ul li{
+ -webkit-animation-name: slidingOut;
+}
+.tiles .content a{
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: #17984e;
+}
+
+.tiles .content a img{
+  width: 100%;
+}
+
+.content.overview{
+  overflow: hidden;
+  color: #f8f8f8;
+}
+.content.overview .image{
+  float: left;
+  width: 250px;
+  height: 350px;
+  background-color: #17984e;
+  background:url(../images/tron.jpg) no-repeat left top;
+  background-size: 100% auto;
+}
+.content.overview .description{
+  float: left;
+  width: 500px;
+  margin-left: 20px;
+  font-size: 27px;
+}
+.content.trailer{
+}
+.content.trailer a{
+  width: 100%;
+  height: 100%;
+  background:transparent url(../images/play.png) no-repeat center center;
+}

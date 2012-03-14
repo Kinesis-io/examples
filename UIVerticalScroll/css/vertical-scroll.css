@@ -1,0 +1,68 @@
+/*!
+  * kinesis.io Custom Stylesheet - UIHorizontalScroll
+  * http://kinesis.io/
+  *
+  * Copyright 2012, Kinesis.io
+  * http://kinesis.io/license
+  *
+  * Copyright 2012, NotionQ LLP
+  *
+  * Date: Thu Feb 23 15:53:00 2012 +0530
+*/
+/* general styles starts */
+*{
+	margin:0;
+	padding:0;
+}
+
+.clear {
+  overflow: hidden; 
+}
+
+body{
+  font-size: 34px;
+	font-family:Georgia;
+}
+/* general styles starts */
+
+/* grid styles starts */
+
+#gridHolder .tile, .banner {
+  opacity: 0.7;
+  margin: 100px;
+  padding: 20px;
+  font-size: 36px;
+  min-height: 400px;
+  line-height: 400px;
+  text-align: center;
+  background-color: #F8F8F8;
+}
+
+#gridHolder .tile {
+  font-size: 200px;
+}
+/* grid styles ends */
+
+/* navigation styles starts */
+#nav {
+  z-index: 2;
+  margin: 10px;
+  color: #FFFFFF;
+  position: fixed;
+}
+
+#nav li {
+  display: inline;
+  padding: 0 10px;
+  list-style: none;
+  border: 1px solid #FFFFFF;
+  background-color: #000000;
+}
+
+#nav li:hover {
+  cursor: pointer;
+  color: #000000;
+  border: 1px solid #555555;
+  background-color: #F8F8F8;
+}
+/* navigation styles ends */

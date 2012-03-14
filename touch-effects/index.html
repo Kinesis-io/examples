@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+    <!-- Copyright © Microsoft Corporation. All Rights Reserved. -->
+    <!-- Demo Author: Matt Rakow, Microsoft Corporation -->   
+    <!-- [insert credits here] --> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="IE10 Test Drive Demo">
+    <meta name="t_omni_demopage" content="1">
+    <title>Touch Effects</title>
+    <link rel="stylesheet" type="text/css" href="css/BaseStyles.css">
+    <link rel="stylesheet" type="text/css" href="css/ReturnAndShareControls.css">
+    <link rel="stylesheet" type="text/css" href="css/Demo.css">
+    <link rel="shortcut icon" href="http://ie.microsoft.com/testdrive/Includes/Image/FavIcon.ico">    
+    <script type="text/javascript" src="js/FeatureDetection.js" data-detect="canvas"></script>
+</head>
+<body onload="setupWorld()">
+    <div id="ReturnAndShareControls"><a title="Return to Test Drive Home" alt="Return to Test Drive Home" href="http://ie.microsoft.com/testdrive/Default.html" classname="ReturnButton" class="ReturnButton"></a><a title="Share this demo on Facebook" alt="Share this demo on Facebook" target="_blank" href="https://www.facebook.com/sharer.php?u=http://ie.microsoft.com/testdrive/Graphics/TouchEffects/&amp;t=Touch%20Effects" classname="ShareOnFacebookButton" class="ShareOnFacebookButton"></a><a title="Tweet a link to this demo" alt="Tweet a link to this demo" target="_blank" href="http://twitter.com/share" classname="ShareOnTwitterButton" class="ShareOnTwitterButton"></a><a title="Email a link to this demo" alt="Email a link to this demo" target="_blank" href="mailto:?subject=Touch%20Effects&amp;body=Check%20out%20the%20Touch%20Effects%20on%20the%20Internet%20Explorer%20Test%20Drive%20website.%20%0A%20%0Ahttp://ie.microsoft.com/testdrive/Graphics/TouchEffects/%0A%0A" classname="ShareViaEmailButton" class="ShareViaEmailButton"></a></div>
+    <h1 id="DemoTitle">
+        Touch Effects
+    </h1>
+    <div id="DemoScreenreaderText">
+        This page contains a canvas element registered for DOM touch 
+events.  Special effects are applied in response to touch and gesture on
+ the canvas. The buttons control simulation settings.  This demo 
+supports multitouch on Windows 8.
+    </div>
+    <div id="DemoContent">
+        <div class="democontrolsactive" id="DemoControls">
+            <div class="controlgroup">
+                <div class="controlgroupheader">
+                    Physics mode
+                </div>
+                <div class="controlbuttongroup">
+                    <button id="gravitybutton" class="controlbutton controlbuttonon">Gravity Wells</button>
+                    <button id="repulsionbutton" class="controlbutton">Magnetic Repulsion</button>
+                </div>
+            </div>
+            <div class="controlgroup">
+                <div class="controlgroupheader">
+                    Particle tethers
+                </div>
+                <div class="controlbuttongroup">
+                    <button id="tetheroffbutton" class="controlbutton controlbuttonon">Off</button>
+                    <button id="tetheronbutton" class="controlbutton">On</button>
+                </div>
+            </div>
+            <div class="controlgroup">
+                <div class="controlgroupheader">
+                    Draw mode
+                </div>
+                <div class="controlbuttongroup">
+                    <button id="rainbowbutton" class="controlbutton controlbuttonon">Rainbows</button>
+                    <button id="ballbutton" class="controlbutton">Balls</button>
+                    <button id="circlebutton" style="display: none;" class="controlbutton">Circles</button>
+                    <button id="beebutton" style="display: none;" class="controlbutton">Bees!</button>
+                </div>
+            </div>
+            <div class="controlgroup">
+                <div class="controlgroupheader">
+                    Blur effect
+                </div>
+                <div class="controlbuttongroup">
+                    <button id="bluroffbutton" class="controlbutton">Off</button>
+                    <button id="bluronbutton" class="controlbutton controlbuttonon">On</button>
+                </div>
+            </div>
+            <div id="democontrolsgripper"></div>
+        </div>
+        <canvas id="canvas" width="1024" height="665"></canvas>
+    </div>
+    <img id="rainbowstrip" style="display: none;" alt="Rainbow Strip" src="images/rainbowstrip.png">
+    <img id="ball" style="display: none;" alt="Ball" src="images/ball.png">
+    <img id="circle" style="display: none;" alt="Circle" src="images/circle.png">
+    <img id="bee" style="display: none;" alt="Bee" src="images/bee.png">
+    <canvas id="cursor" width="100" height="100"><div id='hand'></div></canvas>
+    <script type="text/javascript" src="js/Demo.js"></script>
+    
+    <script type="text/javascript" src="js/TestDriveCommon.js"></script>
+    <script type="text/javascript" src="js/ReturnAndShareControls.js"></script>
+    
+    <link rel="stylesheet" type="text/css" href="http://cdn.kinesis.io/kinesis.css">
+    <!-- js at the bottom to load the page faster -->
+    <script src="http://cdn.kinesis.io/kinesis-js-sdk.min.js"></script>
+	  <script type="text/javascript">
+		  function movement(position)
+		  {
+			  touchPoints[0] = {x : position.x, y : position.y};
+		  }
+		  kinesis = new Kinesis;
+		  Kinesis.cursor = movement;
+	  </script>
+</body></html>

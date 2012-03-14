@@ -1,0 +1,101 @@
+﻿body {
+    margin: 0;
+    overflow: hidden;
+    background-color: black;
+    -ms-content-zooming: none;
+}
+
+#DemoTitle, #DemoScreenreaderText {
+    position: absolute;
+    left: -10000px;
+}
+
+#DemoControls {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 130px;
+    background-color: rgba(255, 255, 255, .7);
+    border-top: 3px solid #424242;
+    border-right: 3px solid #424242;
+    cursor: default;
+    white-space: nowrap;
+    -ms-transform: translate(-776px);
+    -moz-transform: translate(-776px);
+    -webkit-transform: translate(-776px);
+    -o-transform: translate(-776px);
+    transform: translate(-776px);
+    -ms-transition-property: -ms-transform;
+    -ms-transition-duration: 1s;
+    -moz-transition-property: -moz-transform;
+    -moz-transition-duration: 1s;
+    -webkit-transition-property: -webkit-transform;
+    -webkit-transition-duration: 1s;
+    -o-transition-property: -o-transform;
+    -o-transition-duration: 1s;
+    transition-property: transform;
+    transition-duration: 1s;
+}
+
+#DemoControls.democontrolsactive {
+    -ms-transform: none;
+    -moz-transform: none;
+    -webkit-transform: none;
+    -o-transform: none;
+    transform: none;
+}
+
+.controlgroup {
+    display: inline-block;
+    width: 180px;
+    margin: 0 5px;
+    vertical-align: top;
+}
+
+#democontrolsgripper {
+    display: inline-block;
+    width: 50px;
+    height: 100%;
+    background-image: url("../images/touch-effects/arrowright.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+}
+
+.democontrolsactive > #democontrolsgripper {
+    background-image: url("../images/touch-effects/arrowleft.png");
+}
+
+.controlgroupheader {
+    margin: 10px 0;
+    text-align: center;
+    font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+    font-size: 14pt;
+    color: black;
+}
+
+.controlbuttongroup {
+    text-align: center;
+}
+
+.controlbutton {
+    display: block;
+    width: 180px;
+    height: 30px;
+    margin-bottom: 10px;
+    padding: 0;
+    font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+    font-size: 1.1em;
+    background-color: #999;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.controlbuttonon {
+    background-color: #00a3ef;
+}
+
+#canvas {
+    background-color:#000;
+}

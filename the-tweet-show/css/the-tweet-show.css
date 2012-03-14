@@ -1,0 +1,169 @@
+/*!
+  * kinesis.io Custom Stylesheet - The Tweet Show
+  * http://kinesis.io/
+  *
+  * Copyright 2012, Kinesis.io
+  * http://kinesis.io/license
+  *
+  * Copyright 2012, NotionQ LLP
+  *
+  * Date: Thu Feb 23 15:53:00 2012 +0530
+*/
+
+/* general styles starts */
+body {
+  background: url('../images/bg.png') no-repeat fixed center center;
+}
+
+@font-face {
+  font-family: 'GoudyStM';
+  src: url('../fonts/GoudyStM-webfont.eot');
+  src: url('../fonts/GoudyStM-webfont.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/GoudyStM-webfont.woff') format('woff'),
+       url('../fonts/GoudyStM-webfont.ttf') format('truetype'),
+       url('../fonts/GoudyStM-webfont.svg#SegoeWPSemiLight') format('svg');
+  font-weight: normal;
+  font-style: normal;
+} 
+
+
+@font-face {
+  font-family: 'AllerLightRegular';
+  src: url('aller_lt-webfont.eot');
+  src: url('aller_lt-webfont.eot?#iefix') format('embedded-opentype'),
+       url('aller_lt-webfont.woff') format('woff'),
+       url('aller_lt-webfont.ttf') format('truetype'),
+       url('aller_lt-webfont.svg#') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+/* general styles ends */
+
+/* grid styles starts */
+#gridHolder {  
+  -webkit-transition: all 0.5s ease-in; 
+  -moz-transition: all 0.5s ease-in; 
+  -o-transition: all 0.5s ease-in; 
+  -ms-transition: all 0.5s ease-in;
+}
+
+#gridHolder td {
+  width: 550px;
+  overflow: hidden;
+}
+
+.banner {
+  background:#efefef url('../images/logo.png') no-repeat center center !important;
+}
+
+#gridHolder td .tileItem, #gridHolder td .banner {
+  float: left;
+  width: 450px;
+  opacity: 0.7;
+  padding: 20px;
+  min-height: 600px;
+  margin-right: 5px;
+  border-radius: 15px;
+  -moz-border-radius: 15px;
+  background-color: #F8F8F8;
+}
+
+#gridHolder .tileItem .tweet, #gridHolder .tileItem .intro {
+  float: left;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed #ddd;
+}
+
+#gridHolder .intro span {
+  font-family : AllerLightRegular;
+}
+
+#gridHolder .tileItem .tweet span {
+  color: #333;
+  line-height: 36px;
+}
+
+#gridHolder td.active .tileItem .tweet span {
+  color: #000;
+}
+
+#gridHolder .tileItem .tweet .time {
+  float: right;
+  color: #555;
+  font-size: 17px;
+  margin: 10px 0 0;
+  font-family : AllerLightRegular;
+}
+
+#gridHolder .tileItem .intro img {
+  float: left;
+}
+
+#gridHolder .tileItem .intro span {
+  font-size: 18px;
+  display: inline;
+  width: 300px;
+  margin: 0 15px;
+}
+
+#gridHolder .tileItem .intro .name {
+  font-size: 22px;
+}
+
+#gridHolder td.active .tileItem {
+  background-color: #fff;
+  opacity: 1;
+}
+
+#gridHolder span {
+  width: 450px;
+  font-size: 32px;
+  float: left;
+  color: #000;
+  font-family: GoudyStM;
+}
+#gridHolder .tweet a {
+  font-size: 32px;
+  color: #0084B4;
+}
+
+#gridHolder .pic {
+  height: 340px;
+  overflow: hidden;
+  width: 455px;
+  display: block;
+  box-shadow: 0 2px 4px #333333;
+}
+
+#gridHolder .pic img {
+  width: 455px;
+}
+
+#gridHolder span a:hover {
+  text-decoration: underline;
+  color: #666666;
+}
+
+#spinner {
+  background: url('../images/ajax-loader.gif') no-repeat top left;
+  width: 66px;
+  height: 66px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+#fancybox-close label.interactive {
+  color: transparent;
+  padding: 0 5px 15px;
+  text-indent: -9999px;
+}
+
+/* grid styles ends */
+

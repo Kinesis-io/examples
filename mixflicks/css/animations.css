@@ -1,0 +1,87 @@
+/* win8 animations */
+@-webkit-keyframes winflip {
+  0% {
+    opacity: 0.0;
+  }
+  100% {
+    opacity: 1.0;
+  }
+}
+@-webkit-keyframes winflipout {
+  0% {
+    -webkit-transform: scale(1.0, 1.0);
+  }
+  100% {
+    -webkit-transform: scale(1.5, 1.5);
+  }
+}
+@-webkit-keyframes winflipReverse {
+  0% {
+    -webkit-transform: scale(1.5, 1.5);
+  }
+  100% {
+    -webkit-transform: scale(1.0, 1.0);
+  }
+}
+@-webkit-keyframes winflipoutReverse {
+  0% {
+    opacity:1.0;
+  }
+  100% {
+    opacity:0.0;
+  }
+}
+@-moz-keyframes winflip {
+  0% {
+    opacity: 0.0;
+  }
+  100% {
+    opacity: 1.0;
+  }
+}
+@-moz-keyframes winflipout {
+  0% {
+    -moz-transform: scale(1.0, 1.0);
+  }
+  100% {
+    -moz-transform: scale(1.5, 1.5);
+  }
+}
+@-moz-keyframes winflipReverse {
+  0% {
+    -moz-transform: scale(1.5, 1.5);
+  }
+  100% {
+    -moz-transform: scale(1.0, 1.0);
+  }
+}
+@-moz-keyframes winflipoutReverse {
+  0% {
+    opacity:1.0;
+  }
+  100% {
+    opacity:0.0;
+  }
+}
+.win8Flip{
+  -webkit-animation-timing-function: ease-out;
+  -webkit-animation-duration: 500ms;
+  -moz-animation-timing-function: ease-out;
+  -moz-animation-duration: 500ms;
+}
+.win8Flip.in {
+  -webkit-animation-name: winflip;
+  -moz-animation-name: winflip;
+}
+.win8Flip.out {
+  -webkit-animation-name: winflipout;
+  -moz-animation-name: winflipout;
+}
+.win8Flip.in.reverse {
+  -webkit-animation-name: winflipReverse;
+  -moz-animation-name: winflipReverse;
+}
+.win8Flip.out.reverse {
+  -webkit-animation-name: winflipoutReverse;
+  -moz-animation-name: winflipoutReverse;
+}

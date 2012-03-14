@@ -1,0 +1,29 @@
+.question {
+  font-size: 99px;
+  text-align: center;
+}
+
+.holder {
+  margin: 50px 0 20px 0;
+  height: 400px;
+  line-height: 400px;
+  font-size: 150px;
+  overflow: hidden;
+}
+
+.holder div.column {
+  float: left;
+  text-align: center;
+}
+
+.holder .leftHolder {
+  width: 23%;
+}
+
+.holder .rightHolder {
+  width: 23%;
+}
+
+.holder .middleHolder {
+  width: 50%;
+}
