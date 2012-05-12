@@ -1,0 +1,103 @@
+body {
+	background: url("../images/bg3.png") repeat fixed 0 0 #F9F9F9;
+}
+
+.tile {
+/*	margin: 0 10px;*/
+	cursor: pointer;
+}
+
+.tileItem {
+	padding: 8px 15px;
+	margin: 0;
+	border: 5px solid #dddddd;
+	background-color: #ffffff;
+}
+
+.content .detail {
+	color: #787878;
+	padding: 8px 0 18px 0;
+	font-size: 15px;
+	line-height: 22px;
+	font-style: italic;
+	font-family: georgia, serif;
+}
+
+.content .title {
+	color: #333333;
+	font-size: 29px;
+	font-weight: lighter;
+	line-height: 32px;
+	font-family: "HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",sans-serif;
+}
+
+.content .imgHolder {
+	text-align: center;
+}
+
+.content .publisherInfo {
+	margin: 10px 0;
+	overflow: hidden;
+	font-family: Arial;
+}
+
+.content dt {
+	float: left;
+}
+
+.content .avatar img {
+	width: 32px;
+	height: 32px;
+}
+
+.content dd {
+	float: right;
+	width: 91%;
+	color: #555;
+}
+
+.content .username {
+	font-size: 14px;
+}
+
+.content .username span {
+	color: #888;
+}
+
+.content .views {
+	font-size: 12px;
+}
+
+.content .thumb {
+	margin-top: 18px;
+}
+
+.imageHolder {
+	margin: 10px 0;
+}
+
+.imageHolder img {
+	width: 48px;
+	height: 48px;
+}
+
+.gridHolder { 
+  -webkit-transition: all 0.5s ease-in; 
+  -moz-transition: all 0.5s ease-in; 
+  -o-transition: all 0.5s ease-in; 
+  -ms-transition: all 0.5s ease-in;
+}
+
+.tile {
+  opacity: 0.5 !important;
+	overflow: hidden;
+	margin-right: 20px;
+}
+
+.tile img {
+	height: 600px;
+}
+
+.active {
+  opacity: 1 !important;
+}

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Kinesis.io - Google Maps Sample</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="http://cdn.kinesis.io/kinesis.css" />
+    <style type="text/css">
+      html, body, #map_canvas {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+      }
+    </style>
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <script type="text/javascript">
+      var map;
+      function initialize() {
+        var bryantPark = new google.maps.LatLng(37.869260, -122.254811);
+        var panoramaOptions = {
+          position:bryantPark,
+          pov: {
+            heading: 165,
+            pitch:0,
+            zoom:1
+          }
+        };
+        map = new google.maps.StreetViewPanorama(document.getElementById("map_canvas"), panoramaOptions);
+        map.setVisible(true);
+      }
+      
+      google.maps.event.addDomListener(window, 'load', initialize);
+      
+      function moveMap(lat, lng)
+  		{
+  			// modify the position of the street view panorama
+  			map.setPosition(new google.maps.LatLng(lat, lng));
+  		}
+    </script>
+  </head>
+  <body>
+    <div id="map_canvas"></div>
+    <script src="http://cdn.kinesis.io/kinesis-js-sdk.min.js"></script>
+    <script>
+      var canMoveForward = true;
+    
+      function difference(link) {
+        return Math.abs(map.pov.heading%360 - link.heading);
+      }
+    
+      function moveForward() {
+        if(!canMoveForward)
+          return;
+          
+        canMoveForward = false;
+          
+        var curr;
+        for(i=0; i < map.links.length; i++) {
+          var differ = difference(map.links[i]);
+          if(curr == undefined) {
+            curr = map.links[i];
+          }
+          
+          if(difference(curr) > difference(map.links[i])) {
+            curr = curr = map.links[i];
+          }
+        }
+        
+        map.setPano(curr.pano);
+        
+        setTimeout("canMoveForward = true", 2000);
+      }
+      
+      function movement(position) {
+        var pov = map.getPov();
+        
+        if(position.z < -0.4)
+          moveForward();
+        
+        if(position.y == 0 && pov.pitch + 1 <= 45)
+          map.setPov({heading: pov.heading, pitch: pov.pitch + 0.1, zoom: pov.zoom});
+          
+        if(position.y > Layout.pageSize.height * 0.8 && pov.pitch - 1 >= -45)
+          map.setPov({heading: pov.heading, pitch: pov.pitch - 0.1, zoom: pov.zoom});
+          
+        if(position.x == Layout.pageSize.width)
+          map.setPov({heading: pov.heading + 0.1, pitch: pov.pitch, zoom: pov.zoom});
+        
+        if(position.x == 0) 
+          map.setPov({heading: pov.heading - 0.1, pitch: pov.pitch, zoom: pov.zoom});
+      }
+    
+      var kinesis = new Kinesis;
+      Kinesis.cursor = movement;
+    </script>
+  </body>
+</html>

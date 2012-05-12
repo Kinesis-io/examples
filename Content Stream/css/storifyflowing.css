@@ -1,0 +1,76 @@
+.column *{ padding: 2px;}
+body { 
+  font-size: 16px; 
+  background: none;
+}
+.gridHolder { 
+  clear:both; 
+}
+
+.column {
+  padding: 0 20px;
+  overflow: hidden;
+}
+
+.element {
+  padding: 20px 0;
+}
+
+.usertext {
+  color: #555;
+  line-height: 26px;
+  font-size: 18px;
+  font-family: georgia;
+}
+
+.imageHolder {
+  text-align: center;
+  border-left: 0;
+  border-right: 0;
+}
+
+.imageHolder .image {
+  border: 1px solid #f8f8f8;
+}
+
+.info {
+  padding: 0;
+  overflow: hidden;
+}
+
+.info .source {
+  float: left;
+  padding: 8px 0;
+}
+
+.info .source span {
+  color: #888;
+  font-size: 13px;
+  font-family: arial;
+}
+
+.info .username {
+  padding: 0;
+  float: right;
+  font-size: 12px;
+  font-family: arial;
+}
+
+.info .username span {
+  padding: 0;
+  float: left;
+  line-height: 32px;
+}
+
+.info .username img {
+  padding: 0;
+  width: 32px;
+  height: 32px;
+}
+
+.gridHolder { 
+  -webkit-transition: all 0.5s ease-in; 
+  -moz-transition: all 0.5s ease-in; 
+  -o-transition: all 0.5s ease-in; 
+  -ms-transition: all 0.5s ease-in;
+}

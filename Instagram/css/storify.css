@@ -1,0 +1,58 @@
+body {
+	background: url("../images/bg3.png") repeat fixed 0 0 #F9F9F9;
+}
+
+#kui-grid-view {
+}
+
+.tile {
+	margin: 0 10px;
+	cursor: pointer;
+}
+
+.tileItem {
+	margin: 10px auto;
+	border: 5px solid #ffffff;
+}
+
+.content .img {
+	width: 100%;
+	display: block;
+}
+
+.pattern {
+	top: 0;
+  left: 0;
+  width: 100%;
+	height: 100%;
+	position: absolute;
+	background: url("../images/pattern.png") repeat scroll 0 0 transparent;
+}
+
+.caption {
+	top: 0;
+	left: 0;
+	border: 0;
+	float: left;
+	width: auto;
+	color: #dddddd;
+	display: inline;
+	font-size: 14px;
+	position:absolute;
+	background-color:#000000;
+}
+
+/*.caption-overlay {
+	opacity: 0.75;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+	background-color: #000000;
+}*/
+
+/*.caption-text {
+	color:#dddddd;
+	font: bold 14px/1.2em Helvetica;
+}*/

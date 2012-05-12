@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Kinesis.io Flowing Magazine</title>
+  	<script src="js/jquery.min.js"></script>
+  	<script src="js/jquery.columnizer.min.js"></script>
+  	<script src="js/kloader.js"></script>
+  	<script src="js/storify.js"></script>
+  	<link rel="stylesheet" type="text/css" href="http://cdn.kinesis.io/kinesis.css">
+  	<link rel="stylesheet" href="css/storifyflowing.css" type="text/css" />
+  </head>
+  <body>
+    <div id="controller">
+      <div id='kui-grid-view' class="gridHolder">
+      </div>
+    </div>
+    <script src="http://cdn.kinesis.io/kinesis-js-sdk.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        request_url = "http://api.storify.com/v1/stories/torontostar/ipad-3-the-reveal" + '?callback=' + 'storifyCallback2Show';
+        needAutoScroll 	= false;
+      	newPageLoad 		= false;
+      	noOfPagesLoaded = 0
+      	noOfPagesToLoad = 1;
+        setLoadInterval();
+        
+        contentLoaded = false;
+        turnInterval = setInterval("turnToFlowing();", 2000);
+      });
+    </script>
+    <script src="js/horizontal-scroll.js"></script>
+  </body>
+</html>

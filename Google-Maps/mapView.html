@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Kinesis.io - Google Maps Sample</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="http://cdn.kinesis.io/kinesis.css" />
+    <style type="text/css">
+      html, body, #map_canvas {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+      }
+    </style>
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <script type="text/javascript">
+      var map;
+      function initialize() {
+        var myOptions = {
+          zoom: 8,
+          center: new google.maps.LatLng(-34.397, 150.644),
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        map = new google.maps.Map(document.getElementById('map_canvas'), myOptions);
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+  </head>
+  <body>
+    <div id="map_canvas"></div>
+    <script src="http://cdn.kinesis.io/kinesis-js-sdk.min.js"></script>
+    <script>
+      var canSetZoom = true;
+      function setZoom( zoom ) {
+        if( canSetZoom ){
+          canSetZoom = false;
+          if(zoom < 1)
+            return;
+          
+          if(zoom > 20)
+            return;
+            
+          map.setZoom( zoom );
+          setTimeout( "canSetZoom = true;" , 1000 );
+        }
+      }
+      
+      function movement(position) {
+        
+        var offset = 0.1/map.zoom;
+        
+        if(position.z < -0.4)
+          setZoom(map.zoom + 1);
+          
+        if(position.z > 0)
+          setZoom(map.zoom - 1);
+        
+        if(position.y == 0)
+          map.panTo(new google.maps.LatLng(map.center.lat()+offset, map.center.lng(), false));
+          
+        if(position.y > Layout.pageSize.height * 0.8)
+          map.panTo(new google.maps.LatLng(map.center.lat()-offset, map.center.lng(), false));
+          
+        if(position.x == Layout.pageSize.width)
+          map.panTo(new google.maps.LatLng(map.center.lat(), map.center.lng()+offset, false));
+        
+        if(position.x == 0) 
+          map.panTo(new google.maps.LatLng(map.center.lat(), map.center.lng()-offset, false));
+      }
+    
+      var kinesis = new Kinesis;
+      Kinesis.cursor = movement;
+    </script>
+  </body>
+</html>

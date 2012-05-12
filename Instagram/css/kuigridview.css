@@ -1,0 +1,57 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family:Verdana;
+	color:#333;
+	background-color: #000;
+}
+
+a {
+	color:#666;
+}
+
+.gridHolder{
+	width: 6000px;
+	margin: 40px 0;
+	position:	relative;
+	overflow: hidden;
+}
+
+.tile {
+	float: left;
+	height: auto;
+	overflow: hidden;
+}
+
+.tileItem {
+/*	margin: 20px;*/
+	overflow:hidden;
+	z-index:1;
+	text-align:left;
+	float: left;
+  position: relative;
+	background:#000;
+}
+
+.content {
+	color: #fafafa;
+	font-size: 14px;
+	overflow: hidden;
+	cursor: pointer;
+}
+
+.caption {
+	display: none;
+	padding: 5px;
+	position:absolute;
+/*	bottom:0;*/
+	left:0;
+	background:#fafafa;
+	color:#000;
+	width: 100%;
+	font-size: 13px;
+	border: 1px solid #eee;
+}

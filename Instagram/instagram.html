@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Kinesis - UIGridView</title>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.mousewheel.js"></script>
+    <script src="js/kuigridview.js"></script>
+    <script src="js/kloader.js"></script>
+    <script src="js/instagram.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://cdn.kinesis.io/kinesis.css" />
+    <link rel="stylesheet" href="css/kuigridview.css" type="text/css" />
+  </head>
+  
+  <body>
+    <div id="kui-grid-view" class="gridHolder">
+    </div>
+    <script src="http://cdn.kinesis.io/kinesis-js-sdk.min.js"></script>
+    <script>
+      function currentXPosition() {
+        // Firefox, Chrome, Opera, Safari
+        if (self.pageXOffset) return self.pageXOffset;
+      }
+      
+      // smooth scrolling animation
+      function smoothScroll(value) {
+        var startX = currentXPosition();
+        
+        if (startX == undefined)
+          startX = 0;
+          
+        var stopX = startX + value;
+        
+        var distance = stopX > startX ? stopX - startX : startX - stopX;
+        if (distance < 100) {
+          scrollTo(stopX, 0); return;
+        }
+        var speed = Math.round(distance / 100);
+        if (speed >= 20) speed = 20;
+        var step = Math.round(distance / 25);
+        var leapX = stopX > startX ? startX + step : startX - step;
+        var timer = 0;
+        if (stopX > startX) {
+          for (var i=startX; i<stopX; i+=step) {
+            setTimeout("window.scrollTo(" + leapX + ", 0)", timer * speed);
+            leapX += step; if (leapX > stopX) leapX = stopX; timer++;
+          } return;
+        }
+        for (var i=startX; i>stopX; i-=step) {
+          setTimeout("window.scrollTo(" + leapX + ", 0)", timer * speed);
+          leapX -= step; if (leapX < stopX) leapX = stopX; timer++;
+        }
+      };
+      
+      function movement(position) {
+        if(position.x < Layout.pageSize.width * 0.2) 
+          smoothScroll(-1*((Layout.pageSize.width * 0.2) - position.x));
+        if(position.x > Layout.pageSize.width * 0.8) 
+          smoothScroll(position.x - (Layout.pageSize.width * 0.8));         
+      };
+      
+      $(document).ready(function() {	
+      	// horizontal scrolling js
+      	$("body").mousewheel(function(event, delta) {
+      		this.scrollLeft -= (delta * 30);
+      		event.preventDefault();
+      	});
+
+      	needAutoScroll 	= true;
+      	newPageLoad 		= true;
+      	noOfPagesLoaded = 0
+      	noOfPagesToLoad = 1;
+      	request_url 		= "https://api.instagram.com/v1/tags/snow/media/recent?client_id=c11baf5ecd364451b15b261c3695ea20&callback=instagramCallback2Index"
+
+      	setLoadInterval();
+      	
+      	var kinesis = new Kinesis;
+        Kinesis.cursor = movement;
+      });
+    </script>
+  </body>
+</html>
