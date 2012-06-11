@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- kinesis stylesheet -->
+    <link rel="stylesheet" type="text/css" href="http://cdn.kinesis.io/kinesis.css"/>
+    <link rel="stylesheet" href="css/jquery.fancybox-1.3.4.css" type="text/css"/>
+    <link rel="stylesheet" href="css/style.css" type="text/css"/>
+    
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.fancybox-1.3.4.pack.js"></script>
+  </head>
+  <body>
+    <div id="content">
+      <a class="grouped_elements" rel="group1" href="images/1_b.jpg"><img src="images/1_b.jpg" alt="" class="interactive"</a>
+      <a class="grouped_elements" rel="group1" href="images/2_b.jpg"><img src="images/2_b.jpg" alt="" class="interactive"/></a> 	
+      <a class="grouped_elements" rel="group1" href="images/5_b.jpg"><img src="images/5_b.jpg" alt="" class="interactive"/></a> 
+      <a class="grouped_elements" rel="group1" href="images/4_b.jpg"><img src="images/4_b.jpg" alt="" class="interactive"/></a>
+    </div>
+    
+    <!-- kinesis js sdk -->
+    <script src="http://cdn.kinesis.io/kinesis-js-sdk.min.js"></script>
+    <script>
+      var kinesis = new Kinesis; // initialize kinesis
+      
+      $("a.grouped_elements").fancybox( {
+        'onComplete' : function(){
+          $("#fancybox-close").append("<label class='interactive'></label>"); // gesturize the close link by inserting a interactive child inside the close link
+        }
+      }); // initialize fancybox
+    </script>
+  </body>
+</html>

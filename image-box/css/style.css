@@ -1,0 +1,30 @@
+/*!
+  * kinesis.io Custom Stylesheet - Image Box
+  * http://kinesis.io/
+  *
+  * Copyright 2012, Kinesis.io
+  * http://kinesis.io/license
+  *
+  * Copyright 2012, NotionQ LLP
+  *
+  * Date: Thu Jun 10 15:53:00 2012 +0530
+*/
+
+#content {
+  width: 1020px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* custom styles to make the fancy box close interactive */
+
+#fancybox-close .interactive {
+  display: block;
+  padding: 15px;
+}
+
+/* increased z-index for cursor to make it above the fancybox */
+
+#cursor {
+  z-index: 1105;
+}
